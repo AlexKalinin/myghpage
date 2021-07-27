@@ -21,6 +21,6 @@ input.onchange = () => {
   });
 };
 
-console.log('hello budy');
+console.log('dd');
 
 
