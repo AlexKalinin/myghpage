@@ -17,7 +17,7 @@ input.onchange = () => {
   let request = $.ajax({
     url: url,
     type: 'POST',
-    data: fd
+    data: {fd: fd}
   });
 };
 
