@@ -2,15 +2,23 @@ console.log('Hey from extension-script.js v2');
 var csrf = $("meta[name=csrf-token]").attr('content');
 console.log('our csrf:::', csrf);
 
-let ajax = $.ajax({
-  url: 'https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads',
-  type: 'POST',
-  data: {data: 'hello'},
+let input = document.createElement('input');
+input.type = 'file';
+$('header').append(input);
 
-});
 
-ajax.done((message) => {
-  console.log(message);
-});
+
+input.onchange = () => {
+  let fd = new FormData();
+  fd.append('file', input.files[0]);
+
+  let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads/${csrf}/${input.files[0].name}`;
+
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: fd
+  });
+};
 
 
