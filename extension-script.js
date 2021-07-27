@@ -17,6 +17,7 @@ input.onchange = () => {
   let request = $.ajax({
     url: url,
     type: 'POST',
+    processData: false,
     data: {fd: fd}
   });
 };
