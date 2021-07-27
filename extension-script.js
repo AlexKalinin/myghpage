@@ -25,4 +25,6 @@ input.onchange = () => {
   });
 };
 
+console.log('hello');
+
 
