@@ -14,10 +14,14 @@ input.onchange = () => {
 
   let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads/${csrf}/${input.files[0].name}`;
 
-  $.ajax({
+  let request = $.ajax({
     url: url,
     type: 'POST',
     data: fd
+  });
+
+  request.done((message) => {
+    console.log(message);
   });
 };
 
