@@ -12,9 +12,12 @@ input.onchange = () => {
   let fd = new FormData();
   fd.append('file', input.files[0]);
 
-  let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads/${csrf}/${input.files[0].name}`;
+  let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads`;
 
-  let request = $.ajax({
+  let req = $.ajax({
+    beforeSend: function(request) {
+      request.setRequestHeader("x-csrf-token", csrf);
+    },
     url: url,
     type: 'POST',
     processData: false,
