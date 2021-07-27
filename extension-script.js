@@ -19,10 +19,6 @@ input.onchange = () => {
     type: 'POST',
     data: fd
   });
-
-  request.done((message) => {
-    console.log(message);
-  });
 };
 
 console.log('hello');
