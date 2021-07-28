@@ -15,8 +15,16 @@ input.onchange = () => {
   let fd = new FormData();
   fd.append('file', file, file.name);
 
-  axios
-    .post(url, fd)
+  var authOptions = {
+    method: 'POST',
+    url: url,
+    data: fd,
+    headers: {
+      'x-csrf-token': csrf
+    },
+    json: true
+  };
+  axios(authOptions)
     .then( ({ data }) => {
       console.log(data);
     });
