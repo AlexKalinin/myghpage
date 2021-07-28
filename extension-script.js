@@ -21,7 +21,7 @@ input.onchange = () => {
     url: url,
     type: 'POST',
     processData: false,
-    data: {fd: fd}
+    data: {file: fd}
   });
 };
 
