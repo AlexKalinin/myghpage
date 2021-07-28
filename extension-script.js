@@ -18,6 +18,9 @@ input.onchange = () => {
   $.ajax({
     url: url,
     type: 'POST',
+    processData: false,
+    contentType: false,
+    dataType: 'JSON',
     data: fd,
     headers: {
       'x-csrf-token': csrf
