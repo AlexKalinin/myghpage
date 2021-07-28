@@ -9,23 +9,17 @@ $('header').append(input);
 
 
 input.onchange = () => {
-  
-  let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads`;
-
   let file = input.files[0];
 
+  let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads`;
+  let fd = new FormData();
+  fd.append('file', file, file.name);
 
-  let fr = new FileReader();
-  fr.onloadend = e => {
-    let arrayBuffer = e.target.result;
-    let fileType = file.type;
-    var blob = blobUtil.arrayBufferToBlob(arrayBuffer, fileType);
-    return blob;
-  };
-
-  let blob = fr.readAsArrayBuffer(file);
-  console.log(blob);
-
+  axios
+    .post(url, fd)
+    .then( ({ data }) => {
+      console.log(data);
+    });
 };
 
 console.log('hetfhre');
