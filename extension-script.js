@@ -12,15 +12,6 @@ input.onchange = () => {
   
   let url = `https://gitlab.com/nt24.pro/personal/ivan_lyubchenko/gitlab-attacments/uploads`;
 
-  // let req = $.ajax({
-  //   beforeSend: function(request) {
-  //     request.setRequestHeader("x-csrf-token", csrf);
-  //   },
-  //   url: url,
-  //   type: 'POST',
-  //   processData: false,
-  //   data: {file: fd}
-  // });
   let file = input.files[0];
 
 
@@ -29,12 +20,12 @@ input.onchange = () => {
     let arrayBuffer = e.target.result;
     let fileType = file.type;
     var blob = blobUtil.arrayBufferToBlob(arrayBuffer, fileType);
-    console.log('here is a blob', blob);
-    console.log('its size is', blob.size);
-    console.log('its type is', blob.type);
+    return blob;
   };
 
-  fr.readAsArrayBuffer(file);
+  let blob = fr.readAsArrayBuffer(file);
+  console.log(blob);
+
 };
 
 console.log('hetfhere');
