@@ -20,8 +20,9 @@ input.onchange = () => {
     url: url,
     data: fd,
     headers: {
-      'x-csrf-token': csrf
-    },
+      'x-csrf-token': csrf,
+      'content-type': 'application/json'
+    }, 
     json: true
   };
   axios(authOptions)
