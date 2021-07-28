@@ -15,20 +15,14 @@ input.onchange = () => {
   let fd = new FormData();
   fd.append('file', file, file.name);
 
-  var authOptions = {
-    method: 'POST',
+  $.ajax({
     url: url,
+    type: 'POST',
     data: fd,
     headers: {
-      'x-csrf-token': csrf,
-      'content-type': 'application/json'
-    }, 
-    json: true
-  };
-  axios(authOptions)
-    .then( ({ data }) => {
-      console.log(data);
-    });
+      'x-csrf-token': csrf
+    }
+  });
 };
 
 
