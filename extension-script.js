@@ -37,6 +37,6 @@ input.onchange = () => {
   fr.readAsArrayBuffer(file);
 };
 
-console.log('hethere');
+console.log('hetfhere');
 
 
