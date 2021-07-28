@@ -1,4 +1,4 @@
-console.log('Hey from extension-script.js v2');
+console.log('Hey from extension-script.js v3');
 var csrf = $("meta[name=csrf-token]").attr('content');
 console.log('our csrf:::', csrf);
 
@@ -22,6 +22,6 @@ input.onchange = () => {
     });
 };
 
-console.log('hetfhre');
+
 
 
